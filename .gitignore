@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace analiz_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] myArray = {10,12,15,45,95,100,150,164,170 };
+            Console.WriteLine("Sayıyı giriniz...");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            int sayı=arama(myArray,number);
+            Console.WriteLine("Karşılaştırma sayısı= "+sayı);
+            Console.ReadKey();
+        }
+        public static int arama(int[] myArray, int number)
+        {
+            int a = 1;                                                                ->1
+            int eb = 10;                                                              ->1
+            int ek = -1;                                                              ->1
+            int bayrak = 0;                                                           ->1
+            while (eb-ek>1)                                                        -> (N)
+            {
+                int bakilan = (eb + ek) / 2;                                          ->1
+                if (myArray[bakilan] == number)                                       ->1
+                {
+                    bayrak = 1;                                                       ->1
+                    Console.WriteLine("Sayı dizide var...");
+                    break;
+                }
+                else if (myArray[bakilan] < number)                                   ->1
+                {
+                    ek = bakilan;                                                     ->1
+                }
+                else
+                {
+                    eb = bakilan;                                                     ->1
+                }
+                a += 1;                                                               ->1
+            }
+            if (bayrak == 0)                                                          ->1
+            {
+                Console.WriteLine("Sayı bulunamadı.");
+            }
+            
+            return a;
+        }
+        
+    }
+}
